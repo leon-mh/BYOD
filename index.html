@@ -7,6 +7,10 @@
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
     <canvas id="unity-canvas" width=1080 height=1920 tabindex="-1" style="width: 1080px; height: 1920px; background: #231F20"></canvas>
+    
+    <!-- Add a button to trigger fullscreen -->
+    <button id="fullscreen-button" style="position: absolute; top: 10px; left: 10px; z-index: 999;">Go Fullscreen</button>
+    
     <script src="Build/BYOD.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
@@ -35,12 +39,10 @@
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
-    </script>
 
-    <script type="text/javascript">
       // Function to trigger fullscreen
       function enableFullscreen() {
-        var canvas = document.getElementById("unity-canvas"); // Reference the correct canvas ID
+        var canvas = document.getElementById("unity-canvas");
         if (canvas.requestFullscreen) {
           canvas.requestFullscreen();
         } else if (canvas.mozRequestFullScreen) { // Firefox
@@ -52,10 +54,12 @@
         }
       }
 
-      // Trigger fullscreen mode once the page is loaded
-      window.onload = function () {
+      // Trigger fullscreen on button click
+      document.getElementById("fullscreen-button").addEventListener("click", function() {
         enableFullscreen();
-      };
+        // Hide the button after fullscreen is triggered
+        document.getElementById("fullscreen-button").style.display = 'none';
+      });
     </script>
   </body>
 </html>

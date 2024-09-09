@@ -36,27 +36,26 @@
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
     </script>
-<script type="text/javascript">
-  // Function to trigger fullscreen
-  function enableFullscreen() {
-     var canvas = document.getElementById("#canvas");
-     if (canvas.requestFullscreen) {
-        canvas.requestFullscreen();
-     } else if (canvas.mozRequestFullScreen) { // Firefox
-        canvas.mozRequestFullScreen();
-     } else if (canvas.webkitRequestFullscreen) { // Chrome, Safari, and Opera
-        canvas.webkitRequestFullscreen();
-     } else if (canvas.msRequestFullscreen) { // IE/Edge
-        canvas.msRequestFullscreen();
-     }
-  }
 
-  // Trigger fullscreen mode once the page is loaded
-  window.onload = function () {
-     enableFullscreen();
-  };
-</script>
+    <script type="text/javascript">
+      // Function to trigger fullscreen
+      function enableFullscreen() {
+        var canvas = document.getElementById("unity-canvas"); // Reference the correct canvas ID
+        if (canvas.requestFullscreen) {
+          canvas.requestFullscreen();
+        } else if (canvas.mozRequestFullScreen) { // Firefox
+          canvas.mozRequestFullScreen();
+        } else if (canvas.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+          canvas.webkitRequestFullscreen();
+        } else if (canvas.msRequestFullscreen) { // IE/Edge
+          canvas.msRequestFullscreen();
+        }
+      }
 
-
+      // Trigger fullscreen mode once the page is loaded
+      window.onload = function () {
+        enableFullscreen();
+      };
+    </script>
   </body>
 </html>
